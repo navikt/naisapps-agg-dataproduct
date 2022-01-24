@@ -1,0 +1,7 @@
+name,cluster,dato,namespace,collection_time,team,image,ingresses
+aap-soknad,dev-gcp,2021-10-30,aap,2021-10-30T06:13:21.987354,aap,ghcr.io/navikt/aap-soknad:6db957cb289399bcd11b94d9b446e1355b43e9cf,"[""https://aap-soknad.dev.nav.no""]"
+sykefravarsstatistikk,dev-sbs,2021-12-14,arbeidsgiver,2021-12-14T05:13:11.853793,arbeidsgiver,docker.pkg.github.com/navikt/sykefravarsstatistikk/sykefravarsstatistikk:0d913f743c9dcfba540102ace4a1c9037f3a042c,"[""https://arbeidsgiver-q.nav.no/sykefravarsstatistikk"",""https://arbeidsgiver.dev.nav.no/sykefravarsstatistikk""]"
+babylon,prod-sbs,2022-01-10,aura,2022-01-10T05:13:13.112980,aura,ghcr.io/nais/babylon:9576e3d9ac96720e42066c5b93a9c16d8701e10c,[]
+aareg-otp-api,prod-fss,2022-01-13,arbeidsforhold,2022-01-13T05:13:04.906122,arbeidsforhold,docker.pkg.github.com/navikt/aareg/aareg-otp-api:48eba9e222e6615194f5c6dfa6b65e57b01505ed,"[""https://aareg-otp-api.nais.adeo.no""]"
+altinnkanal-2,dev-fss,2021-11-23,alf,2021-11-23T05:13:15.383399,alf,ghcr.io/navikt/altinnkanal-2/altinnkanal-2:49b25721a4df4dcf85e70723856b09ce78ce21f3,"[""https://altinnkanal-2.nais.preprod.local""]"
+tilretteleggingsbehov-innsyn,prod-gcp,2021-11-15,arbeidsgiver,2021-11-15T05:13:22.296495,arbeidsgiver,docker.pkg.github.com/navikt/tilretteleggingsbehov-innsyn/tilretteleggingsbehov-innsyn:07899ba344904308c1000fb709e5aa293bf5681c,"[""https://www.nav.no/person/behov-for-tilrettelegging""]"
