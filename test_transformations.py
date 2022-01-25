@@ -1,19 +1,23 @@
 import unittest
 import pandas as pd
 
-from main import aggregate_apps
+from main import count_apps
 
 
 class TestAggregations(unittest.TestCase):
     def setUp(self):
-        df_raw = pd.read_csv('test_data.csv', sep=',')
-        df = aggregate_apps(df_raw)
-        dato = '2022-20-01'
-        self.df = df[df['dato'] == dato]
+        df_testdata = pd.read_csv('test_data.csv', sep=',')
+        df = count_apps(df_testdata)
+        self.df = df[df['dato'] ==  '2022-20-01']
 
     def test_prodcount(self):
         df = self.df
         antall_apper = df[(df['env'] == 'prod')]['antall_apper'].sum()
+        self.assertTrue(antall_apper == 3)
+
+    def test_devcount(self):
+        df = self.df
+        antall_apper = df[(df['env'] == 'dev')]['antall_apper'].sum()
         self.assertTrue(antall_apper == 3)
 
     def test_cloud_count(self):

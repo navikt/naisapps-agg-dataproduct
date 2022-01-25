@@ -1,7 +1,7 @@
 import pandas_gbq
 
 
-def aggregate_apps(df):
+def count_apps(df):
     """
     This function aggregates apps per location (on prem or cloud) and enviornment (dev or prod)
 
@@ -26,11 +26,11 @@ def aggregate_apps(df):
 def run_etl():
     # Extract
     query = 'SELECT * FROM `aura-prod-d7e3.dataproduct_apps.dataproduct_apps_unique`'
-    df = pandas_gbq.read_gbq(query)
+    df = pandas_gbq.read_gbq(query, project_id='nais-analyse-prod-2dcc')
 
     # Transform
-    df = aggregate_apps(df)
-
+    #df = aggregate_apps(df)
+    print(df.head())
     # Load
 
 
