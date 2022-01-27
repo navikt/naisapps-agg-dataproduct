@@ -1,0 +1,14 @@
+apiVersion: nais.io/v1
+kind: Naisjob
+metadata:
+  labels:
+    team: nais-analyse
+  name: naisapps-agg-dataproduct
+  namespace: nais-analyse
+spec:
+  image: {{image}}
+  schedule: "30 6 * * *"
+  gcp:
+    bigQueryDatasets:
+      - name: apps_aggregated
+        permission: READWRITE

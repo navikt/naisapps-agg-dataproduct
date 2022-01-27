@@ -25,8 +25,8 @@ def count_apps(df):
 
 def load_data(df):
     project_id = 'nais-analyse-prod-2dcc'
-    dataset = ''
-    table = ''
+    dataset = 'apps_aggregated'
+    table = 'apps_per_env'
 
     destination_table = f'{project_id}.{dataset}.{table}'
 
