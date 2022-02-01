@@ -34,13 +34,13 @@ def load_data(df):
         {'name': 'dato', 'type': 'DATE'},
         {'name': 'env', 'type': 'STRING'},
         {'name': 'datacenter', 'type': 'STRING'},
-        {'name': 'antall_apper', 'type': 'INT'}
+        {'name': 'antall_apper', 'type': 'INTEGER'}
     ]
 
     df.to_gbq(
         destination_table=destination_table,
         table_schema=table_schema,
-        if_exists='fail',
+        if_exists='replace',
         progress_bar=False
     )
 
