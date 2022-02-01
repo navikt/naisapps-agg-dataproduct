@@ -7,7 +7,7 @@ metadata:
   namespace: nais-analyse
 spec:
   image: {{image}}
-  schedule: "59 9 * * *"
+  schedule: "07 10 * * *"
   gcp:
     bigQueryDatasets:
       - name: apps_aggregated
