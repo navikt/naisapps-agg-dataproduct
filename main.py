@@ -40,8 +40,7 @@ def load_data(df):
     df.to_gbq(
         destination_table=destination_table,
         table_schema=table_schema,
-        if_exists='replace',
-        project_id=project_id,
+        if_exists='fail',
         progress_bar=False
     )
 
