@@ -1,6 +1,9 @@
 import pandas_gbq
 import logging
 
+logging.basicConfig(level=logging.DEBUG)
+
+
 
 def count_apps(df):
     """
