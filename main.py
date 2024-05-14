@@ -38,9 +38,11 @@ def load_data(df):
         {'name': 'antall_apper', 'type': 'INTEGER'}
     ]
 
-    df.to_gbq(
+    pandas_gbq.to_gbq(
+        dataframe=df,
         destination_table=destination_table,
         table_schema=table_schema,
+        project_id=project_id,
         if_exists='replace',
         progress_bar=False
     )
