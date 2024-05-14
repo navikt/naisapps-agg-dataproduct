@@ -8,6 +8,12 @@ metadata:
 spec:
   image: {{image}}
   schedule: "30 06 * * *"
+  resourcess:
+    limits:
+      memory: "2Gi"
+    requests:
+      cpu: "100m"
+      memory: "1Gi"  
   gcp:
     bigQueryDatasets:
       - name: apps_aggregated
