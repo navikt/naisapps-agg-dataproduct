@@ -12,9 +12,7 @@ jobs:
     name: "build"
     runs-on: "ubuntu-latest"
     permissions:
-      packages: write
       contents: read
-      id-token: write
     steps:
       - uses: "actions/checkout@v2"
       - name: Set up Python 3.12
@@ -39,6 +37,9 @@ jobs:
     name: "Deploy to prod"
     needs: build
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: "actions/checkout@v2"
       - name: "Deploy to prod-gcp"
