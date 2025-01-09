@@ -28,12 +28,7 @@ def count_apps(df):
     return df
 
 
-def load_data(df):
-    project_id = 'nais-analyse-prod-2dcc'
-    dataset = 'apps_aggregated'
-    table = 'apps_per_env'
-
-    destination_table = f'{project_id}.{dataset}.{table}'
+def load_data(df, project_id, destination_table):
 
     table_schema = [
         {'name': 'dato', 'type': 'DATE'},
@@ -71,7 +66,7 @@ def run_etl():
 
     # Load
     logging.info('Write data to target...')
-    load_data(df)
+    load_data(df, project_id, destination_table)
     logging.info(f'{len(df)} rows written to target')
 
 if __name__ == '__main__':
