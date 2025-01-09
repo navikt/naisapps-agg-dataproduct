@@ -1,5 +1,9 @@
-import pandas_gbq
 import logging
+
+import pandas_gbq
+from google.cloud.bigquery import Client
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def count_apps(df):
@@ -49,10 +53,16 @@ def load_data(df):
 
 
 def run_etl():
+    project_id = 'nais-analyse-prod-2dcc'
+    destination_table = f'{project_id}.apps_aggregated.apps_per_env'
+    source_table = 'aura-prod-d7e3.dataproduct_apps.dataproduct_apps_unique'
+
+    client = Client(project=project_id)
+
     # Extract
     logging.info('Read data from source...')
-    query = 'SELECT * FROM `aura-prod-d7e3.dataproduct_apps.dataproduct_apps_unique`'
-    df = pandas_gbq.read_gbq(query, project_id='nais-analyse-prod-2dcc')
+    query = f'SELECT * FROM `{source_table}`'
+    df = client.query(query).to_dataframe()
     logging.info(f'{len(df)} rows read from source')
 
     # Transform
