@@ -50,7 +50,7 @@ def load_data(df, project_id, destination_table):
 def run_etl():
     project_id = 'nais-analyse-prod-2dcc'
     destination_table = f'{project_id}.apps_aggregated.apps_per_env'
-    source_table = 'aura-prod-d7e3.dataproduct_apps.dataproduct_apps_unique'
+    source_table = 'aura-prod-d7e3.dataproduct_apps.dataproduct_apps_unique_v3'
 
     client = Client(project=project_id)
 
