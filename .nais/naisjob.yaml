@@ -10,10 +10,10 @@ spec:
   schedule: "30 06 * * *"
   resources:
     limits:
-      memory: "5Gi"
+      memory: "10Gi"
     requests:
       cpu: "100m"
-      memory: "1Gi"
+      memory: "5Gi"
   gcp:
     bigQueryDatasets:
       - name: apps_aggregated
