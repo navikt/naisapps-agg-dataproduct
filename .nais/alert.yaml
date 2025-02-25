@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: naisapps-agg-dataproduct-alert
+  namespace: nais-analyse
+  labels:
+    team: nais-analyse
+spec:
+  groups:
+  - name: naisapps-agg-dataproduct-alert
+    rules:
+    - alert: NaisjobDown
+      expr: kube_job_failed{job_name=~"^naisapps-agg-dataproduct.*", namespace="nais-analyse"} > 0
+      for: 2m
+      annotations:
+        consequence: Tabell for naisapps blir ikke oppdatert. Ikke kritisk.
+        action: "`Se logger på https://logs.adeo.no -> søk etter pod:naisapps-agg-dataproduct* AND namespace:nais-analyse`"
+        summary: |-
+           Naisjob naisapps-agg-dataproduct feiler i prod-gcp namespace nais-analyse (repo https://github.com/navikt/naisapps-agg-dataproduct)
+      labels:
+        namespace: nais-analyse
+        severity: info
