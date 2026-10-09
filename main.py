@@ -56,7 +56,7 @@ def run_etl():
 
     # Extract
     logging.info('Read data from source...')
-    query = f'SELECT * FROM `{source_table}`'
+    query = f'SELECT dato, cluster FROM `{source_table}`'
     df = client.query(query).to_dataframe()
     logging.info(f'{len(df)} rows read from source')
 
