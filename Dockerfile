@@ -2,10 +2,9 @@ FROM cgr.dev/chainguard/python:latest-dev AS builder
 
 WORKDIR /app
 
-RUN python3 -m venv venv
-ENV PATH=/app/venv/bin:$PATH
+RUN python3 -m venv --without-pip /app/venv
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN python3 -m pip --python /app/venv/bin/python install --no-cache-dir -r requirements.txt
 
 FROM cgr.dev/chainguard/python:latest AS runner
 
